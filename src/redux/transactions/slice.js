@@ -76,6 +76,8 @@ const transactions = createSlice({
       .addCase(transactionSummary.rejected, handleRejected);
   },
 });
+
+
 const transactionsReducer = transactions.reducer;
 export default transactionsReducer;
 

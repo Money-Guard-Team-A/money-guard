@@ -1,6 +1,7 @@
 import { useSelector, useDispatch  } from "react-redux";
 import styles from "./StatisticsTable.module.css";
 
+
 const StatisticsTable = () => {
   const dispatch = useDispatch();
   const stats = useSelector((state) => state.statistics?.data ?? []);

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import StatisticsDashboard from '../../components/StatisticsDashboard/StatisticsDashboard';
 import Chart from '../../components/Chart/Chart';
 import StatisticsTable from '../../components/StatisticsTable/StatisticsTable';
 import styles from './StatisticsTab.module.css';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 function StatisticsTab() {
   const now = new Date();
@@ -33,5 +36,16 @@ function StatisticsTab() {
     </div>
   );
 };
+export const fetchTransactions = createAsyncThunk(
+  "transactions/fetchAll",
+  async (_, thunkAPI) => {
+    try {
+      const res = await axios.get("/transactions");
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response?.data?.message || error.message);
+    }
+  }
+);
 
 export default StatisticsTab;
