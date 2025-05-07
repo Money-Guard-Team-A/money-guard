@@ -29,6 +29,7 @@ const TransactionsList = () => {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
+
   return (
     <div>
       {transactions.length === 0 ? (
