@@ -13,7 +13,6 @@ const validationSchema = yup.object().shape({
   amount: yup
     .number()
     .typeError("Amount must be a number")
-    .moreThan(0, "Amount must be greater than 0")
     .required("Amount is required"),
   comment: yup.string().max(100, "Comment must be less than 100 characters"),
 });
@@ -55,17 +54,21 @@ const EditTransactionForm = ({ onClose, transaction }) => {
     }
 
     const updatedTransaction = {
-      id: transaction.id,
       type: transaction.type,
       amount: Number(data.amount),
       comment: data.comment,
-      date: selectedDate.toISOString(),
       ...(transaction.type === "expense"
         ? { category: transaction.category }
         : {}),
     };
 
-    dispatch(updateTransaction(updatedTransaction));
+    dispatch(
+      updateTransaction({
+        transactionId: transaction.id,
+        transaction: updatedTransaction,
+      })
+    );
+
     onClose();
   };
 
