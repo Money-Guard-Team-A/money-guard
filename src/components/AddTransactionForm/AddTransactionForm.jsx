@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { selectCategories } from "../../redux/transactions/selectors";
 import css from "./AddTransactionForm.module.css";
+import { FaCalendarAlt } from "react-icons/fa";
 
 const getValidationSchema = (isIncome) =>
   Yup.object().shape({
@@ -84,7 +85,13 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
   const expenseCategories = categories?.filter((cat) => cat.type === "EXPENSE");
 
   return (
-    <form className={css.addModalForm} onSubmit={handleSubmit(handleFormSubmit)}>
+    <div className={css.addModalForm} onSubmit={handleSubmit(handleFormSubmit)}>
+      <div className={css.modalHeader}>
+        <h2 className={css.modalTitle}>Add Transaction</h2>
+        <button onClick={onClose} className={css.modalCloseButton}>
+            ✖
+          </button>
+      </div>
       <div className={css.toggleContainer}>
         <span className={`${css.toggleLabel} ${isIncome ? css.activeIncome : css.inactive}`}>Income</span>
               <label className={css.switch}>
@@ -103,6 +110,7 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
               <span className={`${css.toggleLabel} ${!isIncome ? css.activeExpense : css.inactive}`}>Expense</span>
           </div>
 
+      <div className={css.inputBlocks}>
       {!isIncome && (
         <>
           <select className={css.select} {...register("category")}>
@@ -123,11 +131,41 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
           {errors.amount && <p>{errors.amount.message}</p>}
         </div>
         
-        <DatePicker
-          selected={date}
-          onChange={(date) => setDate(date)}
-          dateFormat="dd.MM.yyyy"
-        />
+        <div style={{ position: 'relative', display: 'inline-block', paddingLeft: '20px' }}>
+      <DatePicker
+        selected={date}
+        onChange={(date) => setDate(date)}
+        dateFormat="dd.MM.yyyy"
+        customInput={
+          <input
+            type="text"
+            style={{
+              paddingRight: '10px',
+              paddingLeft: '20px',
+              backgroundColor: 'transparent',
+              border: 'none',
+              color: 'white',
+              cursor: 'pointer',
+              outline: 'none',
+              fontWeight: '400',
+              fontSize: '16px',
+              borderBottom: '2px solid rgba(255, 255, 255, 0.4)',
+            }}
+          />
+        }
+      />
+      <FaCalendarAlt 
+        style={{
+          position: 'absolute',
+          top: '30%',
+          right: '50px',
+          transform: 'translateY(-50%)',
+          fontSize: '18px',
+          color: '#734AEF',
+          display: 'inline-block',
+        }} 
+      />
+    </div>
       </div>
 
       <input {...register("comment")} className={css.input} type="text" placeholder="Comment" />
@@ -139,7 +177,8 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
           CANCEL
         </button>
       </div>
-    </form>
+      </div>
+    </div>
   );
 };
 
