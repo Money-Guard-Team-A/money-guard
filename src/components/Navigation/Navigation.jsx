@@ -15,11 +15,9 @@ const Navigation = () => {
         }
       >
         <div className={css.linkIcon}>
-          <Icon id="#icon-home" className={css.icon} />
+          <Icon id="#icon-home" className={css.homeIcon} />
         </div>
-        {(isTablet || isDesktop) && (
-          <span className={css.linkText}>Dashboard</span>
-        )}
+        {(isTablet || isDesktop) && <span className={css.linkText}>Home</span>}
       </NavLink>
 
       <NavLink
@@ -29,7 +27,7 @@ const Navigation = () => {
         }
       >
         <div className={css.linkIcon}>
-          <Icon id="#icon-graphic" className={css.icon} />
+          <Icon id="#icon-graphic" className={css.graphicIcon} />
         </div>
         {(isTablet || isDesktop) && (
           <span className={css.linkText}>Statistics</span>
@@ -44,7 +42,7 @@ const Navigation = () => {
           }
         >
           <div className={css.linkIcon}>
-            <Icon id="#icon-dollar" className={css.icon} />
+            <Icon id="#icon-dollar" className={css.dollarIcon} />
           </div>
         </NavLink>
       )}
