@@ -95,6 +95,7 @@ const EditTransactionForm = ({ onClose, transaction }) => {
             type="number"
             className={css.modalAmountInput}
             placeholder="0.00"
+            inputMode="decimal"
           />
           {errors.amount && (
             <p className={css.error}>{errors.amount.message}</p>
@@ -105,7 +106,7 @@ const EditTransactionForm = ({ onClose, transaction }) => {
               selected={selectedDate}
               onChange={(date) => setSelectedDate(date)}
               className={css.modalDatePicker}
-              dateFormat="yyyy-MM-dd"
+              dateFormat="dd.MM.yyyy"
             />
             <Icon id="#icon-calendar" />
           </div>

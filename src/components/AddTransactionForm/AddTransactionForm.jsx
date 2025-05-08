@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { selectCategories } from "../../redux/transactions/selectors";
+import css from "./AddTransactionForm.module.css";
 
 const getValidationSchema = (isIncome) =>
   Yup.object().shape({
@@ -83,26 +84,31 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
   const expenseCategories = categories?.filter((cat) => cat.type === "EXPENSE");
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)}>
-      <div>
-        <span>Income</span>
-        <label>
-          <input
-            type="checkbox"
-            checked={isIncome}
-            onChange={() => setIsIncome(!isIncome)}
-          />
-          <span>{isIncome ? "+" : "-"}</span>
-        </label>
-        <span>Expense</span>
-      </div>
+    <form className={css.addModalForm} onSubmit={handleSubmit(handleFormSubmit)}>
+      <div className={css.toggleContainer}>
+        <span className={`${css.toggleLabel} ${isIncome ? css.activeIncome : css.inactive}`}>Income</span>
+              <label className={css.switch}>
+                  <input
+                      className={css.checkbox}
+                      type="checkbox"
+                      checked={isIncome}
+                      onChange={() => setIsIncome(!isIncome)}
+                  />
+                  <span className={css.slider}>
+                      <span className={`${css.sliderCircle} ${isIncome ? css.income : css.expense}`}>
+                          <span className={css.symbol}>{isIncome ? "+" : "-"}</span> 
+                      </span>
+                  </span>
+              </label>
+              <span className={`${css.toggleLabel} ${!isIncome ? css.activeExpense : css.inactive}`}>Expense</span>
+          </div>
 
       {!isIncome && (
         <>
-          <select {...register("category")}>
-            <option value="">Select a category</option>
+          <select className={css.select} {...register("category")}>
+            <option className={css.optionDisabled} value="">Select a category</option>
             {expenseCategories.map((cat) => (
-              <option key={cat.id} value={cat.id}>
+              <option className={css.option} key={cat.id} value={cat.id}>
                 {cat.name}
               </option>
             ))}
@@ -111,21 +117,25 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
         </>
       )}
 
-      <input {...register("amount")} type="number" placeholder="0.00" />
-      {errors.amount && <p>{errors.amount.message}</p>}
+      <div className={css.inputRow}>
+        <div className={css.inputWrapper}>
+          <input {...register("amount")} type="number" placeholder="0.00" />
+          {errors.amount && <p>{errors.amount.message}</p>}
+        </div>
+        
+        <DatePicker
+          selected={date}
+          onChange={(date) => setDate(date)}
+          dateFormat="dd.MM.yyyy"
+        />
+      </div>
 
-      <DatePicker
-        selected={date}
-        onChange={(date) => setDate(date)}
-        dateFormat="dd.MM.yyyy"
-      />
-
-      <input {...register("comment")} type="text" placeholder="Comment" />
+      <input {...register("comment")} className={css.input} type="text" placeholder="Comment" />
       {errors.comment && <p>{errors.comment.message}</p>}
 
-      <div>
-        <button type="submit">ADD</button>
-        <button onClick={onClose} type="button">
+      <div className={css.buttonGroup}>
+        <button type="submit" className={css.addBtn}>ADD</button>
+        <button onClick={onClose} type="button" className={css.cancelBtn}>
           CANCEL
         </button>
       </div>
