@@ -1,3 +1,9 @@
+body {
+  background: linear-gradient(207.18deg, rgba(52, 31, 160, 0.8) 46.11%, rgba(101, 35, 146, 0.8) 63.65%);
+  font-family: Poppins;
+}
+
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

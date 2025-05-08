@@ -7,6 +7,10 @@ import {
 import TransactionsItem from "../TransactionsItem/TransactionsItem";
 import ModalEditTransaction from "../ModalEditTransaction/ModalEditTransaction";
 import { useState } from "react";
+import css from "./TransactionsList.module.css";
+import { useMediaQuery } from 'react-responsive';
+
+
 
 const TransactionsList = () => {
   const transactions = useSelector(selectTransactions) || [];
@@ -26,6 +30,8 @@ const TransactionsList = () => {
     setSelectedTransaction(null);
   };
 
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -36,18 +42,19 @@ const TransactionsList = () => {
         <p>No transactions yet</p>
       ) : (
         <>
-          <table>
-            <thead>
+          <table className={css.transactionTable}>
+          {!isMobile && (
+            <thead className={css.tableHead}>
               <tr>
-                <th>Date</th>
+                <th className={css.date}>Date</th>
                 <th>Type</th>
                 <th>Category</th>
                 <th>Comment</th>
-                <th>Amount</th>
-                <th>Actions</th>
+                <th>Sum</th>
+                <th></th>
               </tr>
-            </thead>
-            <tbody>
+            </thead>)}
+            <tbody className={css.tableBody}>
               {transactions.map((transaction) => (
                 <TransactionsItem
                   key={transaction.id}

@@ -8,6 +8,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter } from "react-router-dom";
 import React from "react";
 import Modal from "react-modal";
+import 'modern-normalize';
 
 
 Modal.setAppElement("#root");

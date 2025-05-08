@@ -3,7 +3,9 @@ import ModalEditTransaction from "../ModalEditTransaction/ModalEditTransaction";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTransaction } from "../../redux/transactions/operations";
 import { selectCategories } from "../../redux/transactions/selectors";
-
+import css from "./TransactionsItem.module.css";
+import { GoPencil } from "react-icons/go";
+import { useMediaQuery } from "react-responsive";
 
 const reverseDate = (date) => {
   const [year, month, day] = date.split("-"); // Tarihi parçalara ayır
@@ -12,7 +14,7 @@ const reverseDate = (date) => {
 
 const getCategoryName = (categoryId, categories) => {
   const category = categories.find((cat) => cat.id === categoryId); // Kategori ID'sine göre bulma
-  return category ? category.name : "Unknown"; // Eğer kategori varsa ismini döndür, yoksa "Unknown" döndür
+  return category ? category.name : "Unknown";
 };
 
 const TransactionsItem = ({ transaction }) => {
@@ -27,20 +29,84 @@ const TransactionsItem = ({ transaction }) => {
     dispatch(deleteTransaction(transaction.id));
   };
 
- const reversedDate = reverseDate(transaction.transactionDate); 
- const categories = useSelector(selectCategories);
+  const reversedDate = reverseDate(transaction.transactionDate);
+  const categories = useSelector(selectCategories);
 
-  return (
+  const amountClass = transaction.amount > 0 ? css.positive : css.negative;
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  return isMobile ? (
+    <div
+      className={`${css.transactionCard} ${
+        transaction.type === "INCOME" ? css.income : css.expense
+      }`}
+    >
+      <div className={css.cardRow}>
+        <span className={css.label}>Date</span>
+        <span>{reversedDate}</span>
+      </div>
+      <div className={css.cardRow}>
+        <span className={css.label}>Type</span>
+        <span>{transaction.type === "EXPENSE" ? "-" : "+"}</span>
+      </div>
+      <div className={css.cardRow}>
+        <span className={css.label}>Category</span>
+        <span>{getCategoryName(transaction.categoryId, categories)}</span>
+      </div>
+      <div className={css.cardRow}>
+        <span className={css.label}>Comment</span>
+        <span>{transaction.comment}</span>
+      </div>
+      <div className={css.cardRow}>
+        <span className={css.label}>Sum</span>
+        <span className={`${css.transactionAmount} ${amountClass}`}>
+          {transaction.amount}
+        </span>
+      </div>
+      <div className={css.buttonsmodal}>
+      <button
+          onClick={handleDelete}
+          disabled={isLoading}
+          className={css.deleteButton}
+        >
+          {isLoading ? "Deleting..." : "Delete"}
+        </button>
+        <button onClick={openModal} className={css.editButton}>
+          <GoPencil />
+        </button>
+       
+      </div>
+
+      {isModalOpen && (
+        <ModalEditTransaction
+          transaction={transaction}
+          onClose={closeModal}
+          openModal={isModalOpen}
+          closeModal={closeModal}
+          isOpen={isModalOpen}
+        />
+      )}
+    </div>
+  ) : (
     <>
       <tr>
         <td>{reversedDate}</td>
-        <td>{transaction.type}</td>
+        <td>{transaction.type === "EXPENSE" ? "-" : "+"}</td>
         <td>{getCategoryName(transaction.categoryId, categories)}</td>
         <td>{transaction.comment}</td>
-        <td>{transaction.amount}</td>
-        <td>
-          <button onClick={openModal}>Edit</button>
-          <button onClick={handleDelete} disabled={isLoading}>
+        <td className={`${css.transactionAmount} ${amountClass}`}>
+          {transaction.amount}
+        </td>
+        <td className={css.buttons}>
+          <button onClick={openModal} className={css.editButton}>
+            <GoPencil />
+          </button>
+          <button
+            onClick={handleDelete}
+            disabled={isLoading}
+            className={css.deleteButton}
+          >
             {isLoading ? "Deleting..." : "Delete"}
           </button>
         </td>
@@ -50,13 +116,11 @@ const TransactionsItem = ({ transaction }) => {
         <tr>
           <td colSpan="6">
             <ModalEditTransaction
-
-        transaction={transaction}
-        onClose={closeModal}
-        openModal={isModalOpen}
-        closeModal={closeModal}
-        isOpen={isModalOpen}
-
+              transaction={transaction}
+              onClose={closeModal}
+              openModal={isModalOpen}
+              closeModal={closeModal}
+              isOpen={isModalOpen}
             />
           </td>
         </tr>

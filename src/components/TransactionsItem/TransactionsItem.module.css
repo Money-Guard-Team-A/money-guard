@@ -1,0 +1,107 @@
+.transactionCard {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    padding: 12px;
+    position: relative;
+    border-left: 5px solid transparent; 
+  }
+  .income {
+    border-left-color: #ffc727;
+  }
+  .expense {
+    border-left-color: #ff868d; 
+  }
+  
+  
+  .cardRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  }
+  
+  .cardRow:last-child {
+    border-bottom: none; 
+  }
+  
+  
+  .label {
+    font-weight: bold;
+    color: #ccc;
+  }
+  
+  .transactionCard:hover {
+    background-color: rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease;
+  }
+  
+
+
+/* Buton stilleri */
+.buttonsmodal {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.deleteButton {
+  border-radius: 18px; 
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  color: white;
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  ); 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.deleteButton:hover {
+  opacity: 0.8;
+}
+
+.editButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.726);
+}
+
+.editButton:hover {
+  opacity: 0.7;
+}
+
+/* Sum miktarı için stiller */
+.transactionAmount {
+  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+}
+
+/* Eğer işlem pozitifse (income)*/
+.transactionAmount.positive {
+  color: #ffc727; /* Sarı */
+}
+
+/* Eğer işlem negatifse (expense) */
+.transactionAmount.negative {
+  color: #ff868d;
+}

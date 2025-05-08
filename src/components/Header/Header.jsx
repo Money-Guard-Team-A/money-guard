@@ -26,24 +26,26 @@ const Header = () => {
               <Icon id="#icon-logo-tablet-desktop" className={css.iconTablet} />
             )}
           </NavLink>
-          <ul>
-            <li>
-              {isLogged ? (
-                <p className={css.text}>{user?.username || "Anonymous"}</p>
-              ) : (
-                "Hello, Anonymous"
-              )}
-            </li>
-            <li>
-              <div className={css.wrap}>
-                <button className={css.headerBtn} onClick={openModal}>
-                  <Icon id="#icon-exit" className={css.iconExit} />
-                  {isMobile ? null : "Exit"}
-                </button>
-                {isOpen && <LogOutModal closeModal={closeModal} />}
-              </div>
-            </li>
-          </ul>
+          <div className={css.headerWrap}>
+            <ul className={css.headerList}>
+              <li className={css.headerItem}>
+                {isLogged ? (
+                  <p className={css.text}>{user?.username || "Anonymous"}</p>
+                ) : (
+                  "Hello, Anonymous"
+                )}
+              </li>
+              <li>
+                <div className={css.wrap}>
+                  <button className={css.headerBtn} onClick={openModal}>
+                    <Icon id="#icon-exit" className={css.iconExit} />
+                    {isMobile ? null : "Exit"}
+                  </button>
+                  {isOpen && <LogOutModal closeModal={closeModal} />}
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </header>

@@ -6,7 +6,7 @@ import Balance from "../../components/Balance/Balance";
 const DashboardPage = () => {
   return (
     <div>
-      <h1>Dashboard Page</h1>
+      {/* <h1>Dashboard Page</h1> */}
       <Header />
       <Navigation />
       <Balance />
@@ -16,3 +16,4 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
+
