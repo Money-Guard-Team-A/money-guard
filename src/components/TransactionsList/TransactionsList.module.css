@@ -1,0 +1,77 @@
+/* Genel tablo düzeni */
+.transactionTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: transparent;
+  color: white;
+}
+
+.tableHead {
+  background-color: #523b7e99;
+  border-radius: 8px;
+  text-align: center;
+
+}
+
+.tableHead th {
+  font-size: 16px;
+  text-align: right;
+  padding: 14px;
+}
+.date {
+    display: flex;
+    align-items: baseline;
+}
+
+.tableBody {
+  background-color: transparent;
+}
+
+.tableBody td {
+  padding: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  border-bottom: 1px solid rgba(171, 171, 171, 0.501);
+  /* Satır arası ince beyaz çizgi */
+}
+
+/* Satır hover efekti */
+.tableBody tr:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s ease;
+}
+
+/*Tablet ve Desktop için*/
+@media screen and (min-width: 768px) {
+
+  .transactionTable {
+    margin-top: 40px;
+    max-width: 715px;
+    width: 100%;
+  }
+
+
+  .tableBody td {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .transactionTable {
+    margin: 40px auto;
+    
+    background-color: transparent;
+  }
+
+  .tableHead th {
+    padding: 16px;
+  }
+
+  .tableBody td {
+    padding: 14px;
+  }
+}

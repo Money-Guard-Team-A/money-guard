@@ -7,6 +7,8 @@ import {
   fetchTransactions,
   transactionCategories,
 } from "../../redux/transactions/operations";
+import { FaPlus } from "react-icons/fa";
+import css from "./HomeTab.module.css";
 
 export default function HomeTab() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,7 +38,7 @@ export default function HomeTab() {
     <div>
       <h1>Home Tab</h1>
       <TransactionsList />
-      <button onClick={openModal}>Add Transaction</button>
+      <button onClick={openModal} className={css.fab} aria-label="Add transaction"><FaPlus size={18} color="white" /></button>
       <ModalAddTransaction
         isOpen={isModalOpen}
         onClose={closeModal}
