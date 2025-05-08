@@ -12,11 +12,15 @@ const Currency = () => {
   }, [dispatch]);
 
   const formatRate = (rate) => {
-    return rate.toFixed(2);
+    return rate?.toFixed(2) || "N/A";
   };
 
-  const usdRate = rates?.find((rate) => rate.currencyCodeA === 840);
-  const eurRate = rates?.find((rate) => rate.currencyCodeA === 978);
+  const usdRate = rates?.find((rate) => rate.currencyCodeA === 840) || {};
+  const eurRate = rates?.find((rate) => rate.currencyCodeA === 978) || {};
+
+  if (!rates || rates.length === 0) {
+    return <p>Loading exchange rates...</p>;
+  }
 
   return (
     <div>
