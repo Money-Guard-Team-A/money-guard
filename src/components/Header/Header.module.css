@@ -1,0 +1,120 @@
+.header {
+  box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.25),
+    inset 0 -3px 2px 0 rgba(0, 0, 0, 0.1);
+  background: linear-gradient(276deg, #2e1746 3%, #2e225f 100%);
+  border-bottom: linear-gradient(180deg, #2e1746 7%, #2e225f 100%);
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  position: relative;
+  z-index: 1;
+}
+.headerList {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: left;
+}
+.logoIcon {
+  position: absolute;
+  left: 20px;
+}
+
+.iconMobile {
+  width: 86px;
+  height: 36px;
+}
+
+.iconTablet {
+  width: 115px;
+  height: 48px;
+}
+
+.headerList {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.headerList li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #b0a9d9;
+  text-decoration: none;
+  border-radius: 6px;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.headerWrap {
+  display: flex;
+  position: absolute;
+  right: 0px;
+}
+.text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #b0a9d9;
+  user-select: text;
+  position: absolute;
+  margin-left: 30px;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.headerBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: #b0a9d9;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.headerBtn:hover,
+.headerBtn:focus {
+  color: #ffffff;
+  outline: none;
+}
+
+.iconExit {
+  width: 20px;
+  height: 20px;
+  fill: #b0a9d9;
+  transition: fill 0.3s ease;
+}
+
+.headerBtn:hover .iconExit,
+.headerBtn:focus .iconExit {
+  fill: #ffffff;
+}

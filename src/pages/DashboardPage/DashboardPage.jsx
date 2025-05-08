@@ -5,7 +5,7 @@ import Navigation from "../../components/Navigation/Navigation";
 export default function DashboardPage() {
   return (
     <div>
-      <h1>Dashboard Page</h1>
+      {/* <h1>Dashboard Page</h1> */}
       <Header />
       <Navigation />
       <Outlet />
