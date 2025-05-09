@@ -1,0 +1,21 @@
+.container{
+    margin-top: 28px;
+    padding: 0px 56px;
+}
+
+.title{
+    font-family: poppins;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    color: #ffffff40;
+}
+.content{
+    font-family: poppins;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+    color: #fcfcfc;
+    margin-top: 12px;
+
+}

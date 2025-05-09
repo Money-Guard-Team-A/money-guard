@@ -36,7 +36,7 @@ export default function HomeTab() {
 
   return (
     <div>
-      <h1>Home Tab</h1>
+      
       <TransactionsList />
       <button onClick={openModal} className={css.fab} aria-label="Add transaction"><FaPlus size={18} color="white" /></button>
       <ModalAddTransaction
