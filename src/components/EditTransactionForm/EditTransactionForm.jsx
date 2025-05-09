@@ -34,7 +34,7 @@ const EditTransactionForm = ({ onClose, transaction }) => {
     },
   });
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [date, setDate] = useState(new Date(transaction.transactionDate));
   const categories = useSelector(selectCategories);
   const category = categories.find((cat) => cat.id === transaction.categoryId);
 
@@ -42,7 +42,7 @@ const EditTransactionForm = ({ onClose, transaction }) => {
     if (transaction) {
       setValue("amount", transaction.amount);
       setValue("comment", transaction.comment || "");
-      setSelectedDate(
+      setDate(
         transaction.date && !isNaN(new Date(transaction.date))
           ? new Date(transaction.date)
           : new Date()
@@ -60,9 +60,10 @@ const EditTransactionForm = ({ onClose, transaction }) => {
       type: transaction.type,
       amount: Number(data.amount),
       comment: data.comment,
-      ...(transaction.type === "expense"
-        ? { category: transaction.category }
-        : {}),
+       transactionDate: date.toISOString(),
+      ...(transaction.type === "EXPENSE"
+  ? { categoryId: transaction.categoryId }
+  : {}),
     };
 
     dispatch(
@@ -119,8 +120,8 @@ const EditTransactionForm = ({ onClose, transaction }) => {
           
           <div style={{ position: 'relative', display: 'inline-block', paddingLeft: '20px' }}>
             <DatePicker
-              selected={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
+              selected={date}
+              onChange={(date) => setDate(date)}
               className={css.modalDatePicker}
                 dateFormat="dd.MM.yyyy"
                 customInput={
