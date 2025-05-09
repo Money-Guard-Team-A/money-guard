@@ -22,7 +22,7 @@ function StatisticsTab() {
       </section>
 
       <section>
-        <h2>Chart</h2>
+        <h2>Statistics</h2>
         <Chart month={month} year={year} />
       </section>
 
