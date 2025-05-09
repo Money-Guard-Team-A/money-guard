@@ -1,7 +1,7 @@
 .logOutModal {
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, #3a2e6f 0%, #2e2560 100%);
+  background: transparent;
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@
 }
 
 .modalContent {
-  background: linear-gradient(135deg, #3a2e6fcc 0%, #2e2560cc 100%);
+  background: linear-gradient(180deg, #4a3f8f 0%, #3a2e7f 100%);
   border-radius: 16px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   width: 100%;
@@ -118,7 +118,7 @@
 
 @media (max-width: 768px) {
   .modalContent {
-    background: linear-gradient(165deg, #3a2e6fcc 0%, #2e2560cc 100%);
+    background: transparent;
     box-shadow: none;
     border-radius: 0;
     padding: 2rem 2rem 2.5rem 2rem;
@@ -138,6 +138,7 @@
     border: none;
     backdrop-filter: none;
     box-shadow: none;
+    background: linear-gradient(180deg, #4a3f8f 0%, #3a2e7f 100%);
   }
   .logoutBtn,
   .cancelBtn {
