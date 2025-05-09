@@ -8,9 +8,7 @@ import TransactionsItem from "../TransactionsItem/TransactionsItem";
 import ModalEditTransaction from "../ModalEditTransaction/ModalEditTransaction";
 import { useState } from "react";
 import css from "./TransactionsList.module.css";
-import { useMediaQuery } from 'react-responsive';
-
-
+import { useMediaQuery } from "react-responsive";
 
 const TransactionsList = () => {
   const transactions = useSelector(selectTransactions) || [];
@@ -35,26 +33,14 @@ const TransactionsList = () => {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-
   return (
     <div>
       {transactions.length === 0 ? (
         <p>No transactions yet</p>
       ) : (
         <>
-          <table className={css.transactionTable}>
-          {!isMobile && (
-            <thead className={css.tableHead}>
-              <tr>
-                <th className={css.date}>Date</th>
-                <th>Type</th>
-                <th>Category</th>
-                <th>Comment</th>
-                <th>Sum</th>
-                <th></th>
-              </tr>
-            </thead>)}
-            <tbody className={css.tableBody}>
+          {isMobile ? (
+            <div className={css.mobileList}>
               {transactions.map((transaction) => (
                 <TransactionsItem
                   key={transaction.id}
@@ -62,8 +48,30 @@ const TransactionsList = () => {
                   onEdit={handleEdit}
                 />
               ))}
-            </tbody>
-          </table>
+            </div>
+          ) : (
+            <table className={css.transactionTable}>
+              <thead className={css.tableHead}>
+                <tr>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Category</th>
+                  <th>Comment</th>
+                  <th>Sum</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody className={css.tableBody}>
+                {transactions.map((transaction) => (
+                  <TransactionsItem
+                    key={transaction.id}
+                    transaction={transaction}
+                    onEdit={handleEdit}
+                  />
+                ))}
+              </tbody>
+            </table>
+          )}
 
           {/* Modal dışarıda, table yapısının dışında! */}
           {isModalOpen && selectedTransaction && (
