@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectTransactions } from "../../redux/transactions/selectors";
+import css from "./Balance.module.css";
 
 const Balance = () => {
   const transactions = useSelector(selectTransactions);
@@ -9,13 +10,12 @@ const Balance = () => {
   }, 0);
 
   return (
-    <div>
-      <h2>Balance</h2>
-      <div>
-        <div>Your Balance</div>
-        <div> ☼ {totalBalance.toFixed(2)}</div>
+    <>
+      <div className={css.container}>
+        <div className={css.title}>Your Balance</div>
+        <div className={css.content}> ☼ {totalBalance.toFixed(2)}</div>
       </div>
-    </div>
+    </>
   );
 };
 
