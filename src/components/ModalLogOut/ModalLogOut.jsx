@@ -51,19 +51,18 @@ const LogOutModal = ({ closeModal }) => {
           </button>
         )}
 
-        {isTablet ||
-          (isDesktop && (
-            <Icon id="#icon-logo-tablet-desktop" className={css.homeIcon} />
-          ))}
+        {(isTablet || isDesktop) && (
+          <Icon id="#icon-logo-tablet-desktop" className={css.homeIcon} />
+        )}
 
         <p className={css.modalText}>Are you sure you want to log out?</p>
 
         <div className={css.buttonsWrapper}>
           <button className={css.logoutBtn} onClick={handleLogout}>
-            Logout
+            LOGOUT
           </button>
           <button className={css.cancelBtn} onClick={closeModal}>
-            Cancel
+            CANCEL
           </button>
         </div>
       </div>
