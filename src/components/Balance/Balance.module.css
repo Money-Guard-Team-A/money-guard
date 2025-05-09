@@ -1,6 +1,10 @@
 .container{
     margin-top: 28px;
-    padding: 0px 56px;
+    padding-left: 56px;
+    padding-top: 8px;
+    padding-bottom: 11px;
+    background-color: #523B7E60;
+    width: 480px;
 }
 
 .title{
