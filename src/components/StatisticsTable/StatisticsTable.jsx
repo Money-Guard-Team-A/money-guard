@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchTransactions,
@@ -6,70 +6,71 @@ import {
 } from "../../redux/transactions/operations";
 import styles from "./StatisticsTable.module.css";
 
-const COLORS = [
-  "#FD9498", // Car
-  "#C5BAFF", // Self care
-  "#4A56E2", // Child care
-  "#24CCA7", // Household products
-  "#81E1FF", // Education
-  "#00AD84", // Leisure
-  "#FED057", // Other expenses
-];
-
 const StatisticsTable = ({ month, year }) => {
   const dispatch = useDispatch();
-  const summary = useSelector((s) => s.transactions.summary) || {};
-  const isLoading = useSelector((s) => s.transactions.isLoading);
-  const error = useSelector((s) => s.transactions.error);
+  const summary = useSelector((state) => state.transactions.summary);
+  const isLoading = useSelector((state) => state.transactions.isLoading);
+  const error = useSelector((state) => state.transactions.error);
 
   useEffect(() => {
     dispatch(fetchTransactions());
     dispatch(transactionSummary({ month, year }));
   }, [dispatch, month, year]);
 
-  const categories = Array.isArray(summary.categoriesSummary)
+  const categoriesSummary = Array.isArray(summary?.categoriesSummary)
     ? summary.categoriesSummary
     : [];
 
-  const totalExpense = categories.reduce((sum, c) => sum + (c.total || 0), 0);
-  const totalIncome = summary.totalIncome || 0;
+  const totalExpense = categoriesSummary.reduce(
+    (acc, item) => acc + (item.total || 0),
+    0
+  );
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error)     return <p>Error: {error}</p>;
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
-    <div className={styles.container}>
-      <h3 className={styles.title}>Kategorilere Göre Harcama</h3>
-
-      <div className={styles.list}>
-        {categories.map((item, idx) => (
-          <div key={item.name} className={styles.row}>
-            <span
-              className={styles.colorBox}
-              style={{ backgroundColor: COLORS[idx] || "#888" }}
-            />
-            <span className={styles.label}>{item.name}</span>
-            <span className={styles.value}>
-              {item.total.toLocaleString()}
-            </span>
-          </div>
-        ))}
-      </div>
-
-      <div className={styles.summary}>
-        <div className={styles.summaryRow}>
-          <span>Expenses:</span>
-          <span className={styles.expenses}>
-            {totalExpense.toLocaleString()}
-          </span>
-        </div>
-        <div className={styles.summaryRow}>
-          <span>Income:</span>
-          <span className={styles.income}>
-            {totalIncome.toLocaleString()}
-          </span>
-        </div>
-      </div>
+    <div className={styles.tableContainer}>
+      <h3>Kategorilere Göre Harcama</h3>
+      <table className={styles.table}>
+        <thead className={styles.header}>
+          <tr>
+            <th className={styles.cell}>Kategori</th>
+            <th className={styles.cell}>Toplam</th>
+          </tr>
+        </thead>
+        <tbody>
+          {categoriesSummary.length > 0 ? (
+            categoriesSummary.map((item) => (
+              <tr key={item.name} className={styles.row}>
+                <td className={styles.cell}>{item.name}</td>
+                <td className={styles.cell}>{item.total.toLocaleString()}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td className={styles.cell} colSpan={2}>
+                Kategori verisi bulunamadı.
+              </td>
+            </tr>
+          )}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td className={styles.cell}>
+              <strong>Toplam Gider</strong>
+            </td>
+            <td className={styles.cell}>
+              <strong>{totalExpense.toLocaleString()}</strong>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
   );
 };
