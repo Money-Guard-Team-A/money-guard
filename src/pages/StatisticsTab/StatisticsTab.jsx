@@ -11,25 +11,27 @@ function StatisticsTab() {
 
   return (
     <div className={styles.tabContainer}>
-      <section>
-        <h2>Statistics Dashboard</h2>
-        <StatisticsDashboard
-          month={month}
-          year={year}
-          onChangeMonth={setMonth}
-          onChangeYear={setYear}
-        />
-      </section>
-
-      <section>
+      <section className={styles.chartSection}>
         <h2>Statistics</h2>
         <Chart month={month} year={year} />
       </section>
 
-      <section>
-        <h2>Statistics Table</h2>
-        <StatisticsTable month={month} year={year} />
-      </section>
+      <div className={styles.sideSection}>
+        <section className={styles.dashboardSection}>
+          {/* <h2>Statistics Dashboard</h2> */}
+          <StatisticsDashboard
+            month={month}
+            year={year}
+            onChangeMonth={setMonth}
+            onChangeYear={setYear}
+          />
+        </section>
+
+        <section className={styles.tableSection}>
+          <h2>Statistics Table</h2>
+          <StatisticsTable month={month} year={year} />
+        </section>
+      </div>
     </div>
   );
 }
