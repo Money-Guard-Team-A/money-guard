@@ -15,11 +15,6 @@ const ModalEditTransaction = ({ onClose, openModal, transaction }) => {
         overlayClassName={css.overlay}
         shouldCloseOnOverlayClick={true}
       >
-        <button onClick={onClose} className={css.modalCloseButton}>
-          ✖
-        </button>
-        <h2 className={css.modalTitle}>Edit Transaction</h2>
-
         <EditTransactionForm onClose={onClose} transaction={transaction} />
       </Modal>
     </div>
