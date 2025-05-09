@@ -7,7 +7,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { selectCategories } from "../../redux/transactions/selectors";
 import css from "./AddTransactionForm.module.css";
-import { FaCalendarAlt } from "react-icons/fa";
+import { RiCalendar2Fill } from "react-icons/ri";
 
 const getValidationSchema = (isIncome) =>
   Yup.object().shape({
@@ -85,7 +85,7 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
   const expenseCategories = categories?.filter((cat) => cat.type === "EXPENSE");
 
   return (
-    <div className={css.addModalForm} onSubmit={handleSubmit(handleFormSubmit)}>
+    <form className={css.addModalForm} onSubmit={handleSubmit(handleFormSubmit)}>
       <div className={css.modalHeader}>
         <h2 className={css.modalTitle}>Add Transaction</h2>
         <button onClick={onClose} className={css.modalCloseButton}>
@@ -112,7 +112,7 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
 
       <div className={css.inputBlocks}>
       {!isIncome && (
-        <>
+        <div className={css.categoryInput}>
           <select className={css.select} {...register("category")}>
             <option className={css.optionDisabled} value="">Select a category</option>
             {expenseCategories.map((cat) => (
@@ -122,12 +122,12 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
             ))}
           </select>
           {errors.category && <p>{errors.category.message}</p>}
-        </>
+        </div>
       )}
 
       <div className={css.inputRow}>
         <div className={css.inputWrapper}>
-          <input {...register("amount")} type="number" placeholder="0.00" />
+          <input {...register("amount")} type="number" placeholder="0.00" className={css.inputNumber}/>
           {errors.amount && <p>{errors.amount.message}</p>}
         </div>
         
@@ -154,13 +154,13 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
           />
         }
       />
-      <FaCalendarAlt 
+      <RiCalendar2Fill 
         style={{
           position: 'absolute',
           top: '30%',
           right: '50px',
           transform: 'translateY(-50%)',
-          fontSize: '18px',
+          fontSize: '22px',
           color: '#734AEF',
           display: 'inline-block',
         }} 
@@ -168,18 +168,17 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
     </div>
       </div>
 
-      <input {...register("comment")} className={css.input} type="text" placeholder="Comment" />
+      <input {...register("comment")} className={css.inputComment} type="text" placeholder="Comment" />
       {errors.comment && <p>{errors.comment.message}</p>}
 
       <div className={css.buttonGroup}>
         <button type="submit" className={css.addBtn}>ADD</button>
-        <button onClick={onClose} type="button" className={css.cancelBtn}>
-          CANCEL
-        </button>
+        <button onClick={onClose} type="button" className={css.cancelBtn}>CANCEL</button>
       </div>
       </div>
-    </div>
+    </form>
   );
 };
+
 
 export default AddTransactionForm;
