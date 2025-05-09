@@ -1,0 +1,152 @@
+.logOutModal {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #3a2e6f 0%, #2e2560 100%);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: linear-gradient(135deg, #3a2e6fcc 0%, #2e2560cc 100%);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 40px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.closeBtn svg path {
+  stroke: #fbfbfb;
+  stroke-width: 2;
+}
+
+.homeIcon {
+  width: 182px;
+  height: 76px;
+  margin-bottom: 16px;
+}
+
+.modalText {
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+}
+
+.buttonsWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logoutBtn {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
+  height: 50px;
+  padding: 12px 0;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: white;
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  box-shadow: 0 8px 15px rgba(209, 107, 165, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+.logoutBtn:hover,
+.logoutBtn:focus {
+  box-shadow: 0 10px 20px rgba(209, 107, 165, 0.7);
+  outline: none;
+}
+
+.cancelBtn {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 300px;
+  height: 50px;
+  padding: 0.75rem 0;
+  border-radius: 1.25rem;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: #5a4a8a;
+  background: white;
+  border: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: background-color 0.3s ease;
+}
+.cancelBtn:hover,
+.cancelBtn:focus {
+  background-color: #f3f3f3;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    background: linear-gradient(165deg, #3a2e6fcc 0%, #2e2560cc 100%);
+    box-shadow: none;
+    border-radius: 0;
+    padding: 2rem 2rem 2.5rem 2rem;
+    max-width: 100%;
+    width: 100%;
+    border: none;
+  }
+
+  .modalText {
+    width: 100%;
+    max-width: 214px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 18px;
+  }
+  .logOutModal {
+    border: none;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+  .logoutBtn,
+  .cancelBtn {
+    margin: 0 auto;
+    max-width: 250px;
+    height: 50px;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.625rem 0;
+    border-radius: 1rem;
+  }
+}
