@@ -27,35 +27,37 @@ const StatisticsTable = ({ month, year }) => {
     dispatch(transactionSummary({ month, year }));
   }, [dispatch, month, year]);
 
-  const categories = Array.isArray(summary.categoriesSummary)
+  const allCategories = Array.isArray(summary.categoriesSummary)
     ? summary.categoriesSummary
     : [];
 
-  const totalExpense = categories.reduce((sum, c) => sum + (c.total || 0), 0);
+  // Sadece gider kategorilerini al
+  const expenseCategories = allCategories.filter((c) => c.type === "EXPENSE");
+
+  const totalExpense = expenseCategories.reduce(
+    (sum, c) => sum + (c.total || 0),
+    0
+  );
   const totalIncome = summary.totalIncome || 0;
 
   if (isLoading) return <p>Loading...</p>;
-  if (error)     return <p>Error: {error}</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div className={styles.container}>
-      {/* <h3 className={styles.title}>Kategorilere Göre Harcama</h3> */}
-
       <div className={styles.list}>
         <div className={styles.headerRow}>
           <span className={styles.headerLabel}>Category</span>
           <span className={styles.headerValue}>Sum</span>
         </div>
-        {categories.map((item, idx) => (
+        {expenseCategories.map((item, idx) => (
           <div key={item.name} className={styles.row}>
             <span
               className={styles.colorBox}
               style={{ backgroundColor: COLORS[idx] || "#888" }}
             />
             <span className={styles.label}>{item.name}</span>
-            <span className={styles.value}>
-              {item.total.toLocaleString()}
-            </span>
+            <span className={styles.value}>{item.total.toLocaleString()}</span>
           </div>
         ))}
       </div>
@@ -69,13 +71,10 @@ const StatisticsTable = ({ month, year }) => {
         </div>
         <div className={styles.summaryRow}>
           <span>Income:</span>
-          <span className={styles.income}>
-            {totalIncome.toLocaleString()}
-          </span>
+          <span className={styles.income}>{totalIncome.toLocaleString()}</span>
         </div>
       </div>
     </div>
   );
 };
-
 export default StatisticsTable;
