@@ -3,11 +3,11 @@ import Balance from "../../components/Balance/Balance";
 import useMedia from "../../hooks/useMedia";
 
 export default function CurrencyTab() {
-  const { isMobile } = useMedia(); // Mobil görünüm kontrolü
+  const { isMobile } = useMedia(); 
 
   return (
     <div>
-      {!isMobile && <Balance />} {/* Mobil görünümde Balance gösterilmez */}
+      {!isMobile && <Balance />} 
       <Currency />
     </div>
   );

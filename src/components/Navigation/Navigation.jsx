@@ -10,7 +10,7 @@ const Navigation = () => {
 
   return (
     <div className={css.container}>
-      
+      <div>
         <nav className={css.navigation}>
           <NavLink
             to="/dashboard/home"
@@ -53,11 +53,11 @@ const Navigation = () => {
             </NavLink>
           )}
         </nav>
-          <div>
-            <Balance />
-          </div>
-          {!isMobile && <Currency />}
-      
+        <div className={css.balance}>
+          <Balance />
+        </div>
+      </div>
+      <div className={css.curr}>{!isMobile && <Currency />}</div>
     </div>
   );
 };
