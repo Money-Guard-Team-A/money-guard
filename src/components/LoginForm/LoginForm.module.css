@@ -44,6 +44,7 @@
     #7000ff 150.71%
   );
   text-transform: uppercase;
+  margin-top: 50px;
 }
 
 .register {
@@ -64,4 +65,14 @@
   height: 35px;
   margin-block: 15px;
   border-bottom: 1px solid #ffffff66;
+}
+
+@media screen and (min-width: 768px) {
+  .login,
+  .register {
+    width: 300px;
+  }
+  .form input {
+    width: 350px;
+  }
 }
