@@ -3,6 +3,7 @@
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
   color: #fff;
+  width: 395px;
 }
 
 .title {
@@ -48,8 +49,33 @@
   font-size: 14px;
 }
 
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+  color: #fff;
+  background-color: #523B7E99;
+  border-radius: 8px;
+  height: 56px;
+  align-items: center;
+}
+
+.headerLabel {
+  flex: 1;
+  padding-left: 24px;
+}
+
+.headerValue {
+  width: 80px;
+}
+
 .summary {
   margin-top: 16px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
 }
 
 .summaryRow {

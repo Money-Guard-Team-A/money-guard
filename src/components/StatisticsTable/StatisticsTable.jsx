@@ -39,9 +39,13 @@ const StatisticsTable = ({ month, year }) => {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>Kategorilere Göre Harcama</h3>
+      {/* <h3 className={styles.title}>Kategorilere Göre Harcama</h3> */}
 
       <div className={styles.list}>
+        <div className={styles.headerRow}>
+          <span className={styles.headerLabel}>Category</span>
+          <span className={styles.headerValue}>Sum</span>
+        </div>
         {categories.map((item, idx) => (
           <div key={item.name} className={styles.row}>
             <span

@@ -9,6 +9,7 @@
   flex-direction: column;
   flex: 1;
   max-width: 200px;
+  margin-bottom: 30px;
 }
 
 .label {
@@ -50,4 +51,8 @@
   border-right: 6px solid transparent;
   border-top: 6px solid #ffffff;
   pointer-events: none;
+}
+option{
+  background-color: #533DBA;
+  border-radius: 8px;
 }

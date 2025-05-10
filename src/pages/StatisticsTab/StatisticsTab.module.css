@@ -1,17 +1,12 @@
 .tabContainer { 
-  position: relative;
-  width: 100%;
+  margin-left: 30%;
+  width: 70%;
+  position: absolute;
+  top: 84px;
   max-width: 1280px;
-  height: 900px;
-  margin: 0 auto;
+  height: 907px;
   padding: 40px;
-  box-sizing: border-box;
-  background: linear-gradient(
-    135deg,
-    #1e1a3b 0%,
-    #292558 100%
-  );
-  border-radius: 16px;
+  background: linear-gradient(360deg, rgb(167 26 249 / 64%) 0%, rgb(80 48 154 / 57%) 43.14%, rgb(106 70 165 / 53%) 73.27%, #2a1357 105.03%);
   display: flex;
   gap: 30px;
   color: #fff;

@@ -28,7 +28,7 @@ function StatisticsTab() {
         </section>
 
         <section className={styles.tableSection}>
-          <h2>Statistics Table</h2>
+          {/* <h2>Statistics Table</h2> */}
           <StatisticsTable month={month} year={year} />
         </section>
       </div>
