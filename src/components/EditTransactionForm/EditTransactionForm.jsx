@@ -50,7 +50,7 @@ const EditTransactionForm = ({ onClose, transaction }) => {
     }
   }, [transaction, setValue]);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (!transaction?.id) {
       console.error("Transaction ID is missing.");
       return;
@@ -66,7 +66,8 @@ const EditTransactionForm = ({ onClose, transaction }) => {
   : {}),
     };
 
-    dispatch(
+    try {
+    await dispatch(
       updateTransaction({
         transactionId: transaction.id,
         transaction: updatedTransaction,
@@ -74,7 +75,12 @@ const EditTransactionForm = ({ onClose, transaction }) => {
     );
 
     onClose();
-  };
+    // ✅ Güncelleme tamamlandıktan sonra sayfayı yenile
+    window.location.reload();
+  } catch (error) {
+    console.error("Failed to update transaction:", error);
+  }
+};
 
   return (
     <div className={css.editModalForm}>
