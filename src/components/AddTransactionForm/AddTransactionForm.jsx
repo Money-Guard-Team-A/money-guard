@@ -131,7 +131,7 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
           {errors.amount && <p>{errors.amount.message}</p>}
         </div>
         
-        <div style={{ position: 'relative', display: 'inline-block', paddingLeft: '20px' }}>
+        <div style={{ position: 'relative', display: 'inline-block', paddingLeft: '20px', paddingTop: '1px' }}>
       <DatePicker
         selected={date}
         onChange={(date) => setDate(date)}
@@ -141,7 +141,7 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
             type="text"
             style={{
               paddingRight: '10px',
-              paddingLeft: '20px',
+              paddingLeft: '30px',
               backgroundColor: 'transparent',
               border: 'none',
               color: 'white',
@@ -149,7 +149,7 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
               outline: 'none',
               fontWeight: '400',
               fontSize: '16px',
-              borderBottom: '2px solid rgba(255, 255, 255, 0.4)',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.4)',
             }}
           />
         }
