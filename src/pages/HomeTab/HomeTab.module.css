@@ -1,8 +1,4 @@
-.container{
-      position: absolute;
-      top: 84px;
-      right: 15px;
-}
+
 .fab {
     position: fixed;
     bottom: 24px;
@@ -29,4 +25,11 @@
         margin: 32px;
     }
     
+  }
+  @media screen and (min-width: 1024px) {
+    .container{
+      position: absolute;
+      top: 84px;
+      right: 50px;
+}
   }
