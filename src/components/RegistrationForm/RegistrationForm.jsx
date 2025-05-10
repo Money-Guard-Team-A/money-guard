@@ -14,6 +14,7 @@ export default function RegistrationPage() {
     username: "",
     email: "",
     password: "",
+    confirmPassword: "",
   };
 
   const validationSchema = Yup.object({
@@ -25,11 +26,19 @@ export default function RegistrationPage() {
       .min(6, "Şifre en az 6 karakter olmalıdır")
       .max(12, "Şifre en fazla 12 karakter olmalıdır")
       .required("Zorunludur!"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Şifreler eşleşmiyor')
+      .required('Şifre onayı zorunludur'),
   });
-
+  
   const registerSubmit = (values) => {
-    dispatch(register(values));
-  };
+    const { confirmPassword, ...submitData } = values;
+    dispatch(register(submitData));
+  }
+
+//   const registerSubmit = (values) => {
+//     dispatch(register(values));
+//   };
 
   return (
     <div className={styles.registerForm}>
@@ -76,6 +85,12 @@ export default function RegistrationPage() {
               id="password"
               name="password"
               placeholder="Password"
+            />
+            <Field 
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm Password"
             />
           </div>
           <button className={styles.register} type="submit">
