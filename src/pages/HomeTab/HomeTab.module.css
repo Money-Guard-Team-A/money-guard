@@ -1,3 +1,4 @@
+
 .fab {
     position: fixed;
     bottom: 24px;
@@ -18,4 +19,10 @@
   
   .fab:hover {
     transform: scale(1.1);
+  }
+  @media screen and (min-width: 768px) {
+    .container {
+        margin: 32px;
+    }
+    
   }

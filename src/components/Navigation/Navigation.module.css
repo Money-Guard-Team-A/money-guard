@@ -1,6 +1,6 @@
 .container {
-  display: flex;
-  flex-direction: column;
+  display: flow;
+  flex-direction: row;
 }
 .content {
   display: flex;
@@ -67,8 +67,12 @@
 .active .dollarIcon {
   fill: #734aef;
 }
-
+.balance {
+}
 @media screen and (min-width: 768px) {
+  .container {
+    display: flex;
+  }
   .navigation {
     flex-direction: column;
     gap: 12px;
@@ -112,6 +116,19 @@
   .linkIcon {
     width: 32px;
     height: 32px;
+  }
+  .curr {
+    width: 336px;
+    margin-left: 32px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    border-right: 1px solid rgba(250, 247, 247, 0.991);
   }
 }
 
