@@ -20,7 +20,8 @@
     display: flex;
     justify-content: space-between;
     padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #FBFBFB;
   }
   
   .cardRow:last-child {
@@ -30,7 +31,7 @@
   
   .label {
     font-weight: bold;
-    color: #ccc;
+    color: #FBFBFB;
   }
   
   .transactionCard:hover {
