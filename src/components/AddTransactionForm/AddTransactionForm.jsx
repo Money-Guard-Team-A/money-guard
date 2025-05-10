@@ -47,7 +47,7 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
     },
   });
 
-  const handleFormSubmit = (data) => {
+  const handleFormSubmit = async (data) => {
     if (!isIncome && !data.category) {
       alert("Please select a category.");
       return;
@@ -74,9 +74,14 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
       categoryId: selectedCategory.id,
     };
 
-    onSubmit(transactionData);
+    try {
+    await onSubmit(transactionData);
     reset();
-  };
+    window.location.reload();
+  } catch (error) {
+    console.error("Transaction submit failed:", error);
+  }
+};
 
   useEffect(() => {
     reset({}, { keepValues: true, keepErrors: true, keepDirty: true });

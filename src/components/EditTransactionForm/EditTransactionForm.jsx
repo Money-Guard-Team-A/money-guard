@@ -75,7 +75,6 @@ const EditTransactionForm = ({ onClose, transaction }) => {
     );
 
     onClose();
-    // ✅ Güncelleme tamamlandıktan sonra sayfayı yenile
     window.location.reload();
   } catch (error) {
     console.error("Failed to update transaction:", error);
