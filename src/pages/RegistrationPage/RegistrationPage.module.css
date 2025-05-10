@@ -21,7 +21,7 @@
     backdrop-filter: blur(100px);
     box-shadow: 0px 4px 60px 0px #00000040;
     width: 533px;
-    height: 570px;
+    padding-bottom: 50px;
     position: absolute;
     top: 50%;
     left: 50%;

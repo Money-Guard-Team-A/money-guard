@@ -59,13 +59,20 @@
 
 .mailSection,
 .passwordSection,
-.usernameSection {
+.usernameSection,
+.confirmPasswordSection {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 35px;
   margin-block: 10px;
   border-bottom: 1px solid #ffffff66;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 14px;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
