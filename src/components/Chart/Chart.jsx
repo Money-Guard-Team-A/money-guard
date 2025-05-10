@@ -15,13 +15,16 @@ const Chart = ({ month, year }) => {
   }, [dispatch, month, year]);
 
   const totalBalance = transactions.reduce((acc, transaction) => {
-    return acc + (transaction.type === "income" ? transaction.amount : -transaction.amount);
+    return (
+      acc +
+      (transaction.type === "income" ? transaction.amount : -transaction.amount)
+    );
   }, 0);
 
+  // Sadece "Income" olmayanları filtrele
   const categoriesSummary = Array.isArray(summary?.categoriesSummary)
-    ? summary.categoriesSummary
+    ? summary.categoriesSummary.filter((item) => item.name !== "Income")
     : [];
-
 
   const data = {
     labels: categoriesSummary.map((item) => item.name),
@@ -54,7 +57,7 @@ const Chart = ({ month, year }) => {
       },
     },
   };
-  
+
   const centerTextPlugin = {
     id: "centerText",
     beforeDraw: (chart) => {
@@ -76,9 +79,16 @@ const Chart = ({ month, year }) => {
       ctx.restore();
     },
   };
-  
 
-  return <Doughnut data={data} options={options} width={288} height={288}  plugins={[centerTextPlugin]} />;
+  return (
+    <Doughnut
+      data={data}
+      options={options}
+      width={288}
+      height={288}
+      plugins={[centerTextPlugin]}
+    />
+  );
 };
 
 export default Chart;
