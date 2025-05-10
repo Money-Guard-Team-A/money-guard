@@ -1,1 +1,34 @@
+.table {
+    width: 320px;
+    border-collapse: collapse;
+    color: #ffffff;
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    margin-top: 16px;
+}
+.tableHeader {
+    background-color: #ffffff20;
+    font-weight: 600;
+   
+}
+.tableHeader th {
+    padding: 13px 0;
+}
+.tableBody td {
+    padding-left: 20px;
+    padding-top: 8px;
+    font-family: poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+.chartContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
 
+.chartWrapper {
+    width: 320px; /* Grafiğin genişliği */
+    height: 200px; /* Grafiğin yüksekliği */
+}
