@@ -31,14 +31,20 @@ const StatisticsTable = ({ month, year }) => {
     ? summary.categoriesSummary
     : [];
 
-  // Sadece gider kategorilerini al
+  
   const expenseCategories = allCategories.filter((c) => c.type === "EXPENSE");
+  const incomeCategories = allCategories.filter((c) => c.type === "INCOME");
 
+  
   const totalExpense = expenseCategories.reduce(
     (sum, c) => sum + (c.total || 0),
     0
   );
-  const totalIncome = summary.totalIncome || 0;
+
+  
+  const totalIncome =
+    summary.totalIncome ??
+    incomeCategories.reduce((sum, c) => sum + (c.total || 0), 0);
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -77,4 +83,5 @@ const StatisticsTable = ({ month, year }) => {
     </div>
   );
 };
+
 export default StatisticsTable;
