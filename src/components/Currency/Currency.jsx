@@ -34,21 +34,38 @@ const Currency = () => {
     labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
     datasets: [
       {
+        label: "USD Rate",
         data: [27.55, 27.6, 27.5, 27.65, 27.7],
         borderColor: "#FF8A65",
         backgroundColor: function (context) {
           const ctx = context.chart.ctx;
           const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-          gradient.addColorStop(0, "#ffffff"); 
-          gradient.addColorStop(1, "#39009620"); 
+          gradient.addColorStop(0, "#ffffff");
+          gradient.addColorStop(1, "#39009620");
           return gradient;
         },
-        fill: "start", 
+        fill: false,
         tension: 0.4,
         pointRadius: 0,
       },
+      {
+        label: "USD Rate - 2 units",
+        data: [27.55, 27.6, 27.5, 27.65, 27.7].map((val) => val - 0.05),
+        borderColor: "#9E9E9E10",
+        backgroundColor: function (context) {
+          const ctx = context.chart.ctx;
+          const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+          gradient.addColorStop(0, "#ffffff");
+          gradient.addColorStop(1, "#39009620");
+          return gradient;
+        },
+        tension: 0.4,
+        pointRadius: 0,
+        fill: "start",
+      },
     ],
   };
+  
 
   const chartOptions = {
     responsive: true,
