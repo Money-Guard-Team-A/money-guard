@@ -50,7 +50,7 @@ const EditTransactionForm = ({ onClose, transaction }) => {
     }
   }, [transaction, setValue]);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (!transaction?.id) {
       console.error("Transaction ID is missing.");
       return;
@@ -66,7 +66,8 @@ const EditTransactionForm = ({ onClose, transaction }) => {
   : {}),
     };
 
-    dispatch(
+    try {
+    await dispatch(
       updateTransaction({
         transactionId: transaction.id,
         transaction: updatedTransaction,
@@ -74,7 +75,11 @@ const EditTransactionForm = ({ onClose, transaction }) => {
     );
 
     onClose();
-  };
+    window.location.reload();
+  } catch (error) {
+    console.error("Failed to update transaction:", error);
+  }
+};
 
   return (
     <div className={css.editModalForm}>
@@ -100,14 +105,14 @@ const EditTransactionForm = ({ onClose, transaction }) => {
 
         <div className={css.selectCategoryInput}>
         {transaction.type === "EXPENSE" && (
-      <span className={css.selectCategory}>
+      <span className={css.selectEditCategory}>
         {category ? category.name : "Category"}
       </span>
       )}
         </div>
 
           <div className={css.inputEditRow}>
-          <div className={css.inputWrapper}>
+          <div className={css.inputEditWrapper}>
           <input
             {...register("amount")}
             type="number"
@@ -118,7 +123,7 @@ const EditTransactionForm = ({ onClose, transaction }) => {
           {errors.amount && (<p className={css.error}>{errors.amount.message}</p>)}
             </div>
           
-          <div style={{ position: 'relative', display: 'inline-block', paddingLeft: '20px' }}>
+          <div className={css.inputEditDateWrapper}>
             <DatePicker
               selected={date}
               onChange={(date) => setDate(date)}
@@ -126,33 +131,11 @@ const EditTransactionForm = ({ onClose, transaction }) => {
                 dateFormat="dd.MM.yyyy"
                 customInput={
           <input
-            type="text"
-            style={{
-              paddingRight: '10px',
-              paddingLeft: '20px',
-              backgroundColor: 'transparent',
-              border: 'none',
-              color: 'white',
-              cursor: 'pointer',
-              outline: 'none',
-              fontWeight: '400',
-              fontSize: '16px',
-              borderBottom: '2px solid rgba(255, 255, 255, 0.4)',
-            }}
+            type="text" className={css.inputEditDate}
           />
         }
             />
-            <RiCalendar2Fill 
-                    style={{
-                      position: 'absolute',
-                      top: '30%',
-                      right: '50px',
-                      transform: 'translateY(-50%)',
-                      fontSize: '22px',
-                      color: '#734AEF',
-                      display: 'inline-block',
-                    }} 
-                  />
+            <RiCalendar2Fill className={css.modalEditDateIcon} />
             </div>
           </div>
 
