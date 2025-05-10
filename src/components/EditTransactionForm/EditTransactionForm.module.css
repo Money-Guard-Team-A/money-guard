@@ -249,6 +249,7 @@
     }
 }
 
+
 /*tablet ve desktop*/
 @media screen and (min-width: 768px) {
     .editModalForm {

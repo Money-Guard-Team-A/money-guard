@@ -7,6 +7,7 @@
   color: white;
 }
 
+
 .tableHead {
   background-color: #523b7e99;
   border-radius: 8px;
@@ -16,7 +17,7 @@
 
 .tableHead th {
   font-size: 16px;
-  text-align: right;
+  text-align: center;
   padding: 14px;
 }
 .date {
@@ -50,7 +51,6 @@
 
   .transactionTable {
     margin-top: 40px;
-    max-width: 715px;
     width: 100%;
   }
 
@@ -63,7 +63,7 @@
 @media screen and (min-width: 1024px) {
   .transactionTable {
     margin: 40px auto;
-    
+    width: 1300px;
     background-color: transparent;
   }
 
