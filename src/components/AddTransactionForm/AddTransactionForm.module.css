@@ -78,6 +78,7 @@
         border-radius: 50%;
         transition: all 0.4s ease;
         cursor: pointer;
+        top: -2px;
     }
 
     .income {
@@ -223,6 +224,36 @@
     .modalCloseButton {
         display: none;
     }
+
+    .inputAddDateWrapper {
+        position: relative;
+        display: inline-block;
+        padding-left: 20px;
+        padding-top: 1px;
+    }
+    
+    .inputAddDate {
+        padding-right: 10px;
+        padding-left: 30px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        outline: none;
+        font-weight: 400;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    
+    .modalAddDateIcon {
+        position: absolute;
+        top: 30%;
+        right: 50px;
+        transform: translateY(-50%);
+        font-size: 22px;
+        color: #734AEF;
+        display: inline-block;
+    }
 }
 
 /*tablet ve desktop*/
@@ -305,6 +336,7 @@
         border-radius: 50%;
         transition: all 0.4s ease;
         cursor: pointer;
+        top: -2px;
     }
 
     .income {
@@ -455,5 +487,35 @@
         position: fixed;
         right: 160px;
         top: 40px;
+    }
+
+    .inputAddDateWrapper {
+        position: relative;
+        display: inline-block;
+        padding-left: 20px;
+        padding-top: 1px;
+    }
+    
+    .inputAddDate {
+        padding-right: 10px;
+        padding-left: 30px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        outline: none;
+        font-weight: 400;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    
+    .modalAddDateIcon {
+        position: absolute;
+        top: 30%;
+        right: 50px;
+        transform: translateY(-50%);
+        font-size: 22px;
+        color: #734AEF;
+        display: inline-block;
     }
 }

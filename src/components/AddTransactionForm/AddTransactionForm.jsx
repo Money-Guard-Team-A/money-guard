@@ -136,39 +136,21 @@ const AddTransactionForm = ({ onClose, onSubmit }) => {
           {errors.amount && <p>{errors.amount.message}</p>}
         </div>
         
-        <div style={{ position: 'relative', display: 'inline-block', paddingLeft: '20px', paddingTop: '1px' }}>
+        <div className={css.inputAddDateWrapper}>
       <DatePicker
         selected={date}
         onChange={(date) => setDate(date)}
+        className={css.modalAddDatePicker}
         dateFormat="dd.MM.yyyy"
         customInput={
           <input
             type="text"
-            style={{
-              paddingRight: '10px',
-              paddingLeft: '30px',
-              backgroundColor: 'transparent',
-              border: 'none',
-              color: 'white',
-              cursor: 'pointer',
-              outline: 'none',
-              fontWeight: '400',
-              fontSize: '16px',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.4)',
-            }}
+            className={css.inputAddDate}
           />
         }
       />
       <RiCalendar2Fill 
-        style={{
-          position: 'absolute',
-          top: '30%',
-          right: '50px',
-          transform: 'translateY(-50%)',
-          fontSize: '22px',
-          color: '#734AEF',
-          display: 'inline-block',
-        }} 
+        className={css.modalAddDateIcon}
       />
     </div>
       </div>
