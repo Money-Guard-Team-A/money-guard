@@ -1,10 +1,12 @@
 .container{
+
     margin: 28px auto;
     padding: 0px 56px;
     background-color: #00000040;
     padding: 20px;
     width: 280px;
     border-radius: 10px;
+  
 }
 
 .title{
