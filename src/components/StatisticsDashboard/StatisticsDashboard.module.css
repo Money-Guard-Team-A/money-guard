@@ -1,0 +1,53 @@
+.dashboard {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 200px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.select {
+  position: relative;
+  padding: 12px;
+  font-size: 16px;
+  color: #ffffff;
+  background: rgba(74, 86, 226, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  appearance: none;   
+  cursor: pointer;
+}
+
+.select:hover {
+  background: rgba(74, 86, 226, 0.2);
+}
+.select:focus {
+  outline: none;
+  border-color: #ffffff;
+}
+
+.select::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%)
+    rotate(0deg);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #ffffff;
+  pointer-events: none;
+}

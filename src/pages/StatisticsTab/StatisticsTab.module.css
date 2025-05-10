@@ -1,0 +1,30 @@
+.tabContainer { 
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  height: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    #1e1a3b 0%,
+    #292558 100%
+  );
+  border-radius: 16px;
+  display: flex;
+  gap: 30px;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tabContainer > section {
+  flex: 1;
+}
+
+.tabContainer section h2 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+}

@@ -1,0 +1,78 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  color: #bdbdbd;
+}
+.form input:focus {
+  outline: none;
+}
+
+.login,
+.register {
+  width: 280px;
+  height: 50px;
+  margin-block: 10px;
+  border-radius: 20px;
+  box-shadow: 1px 9px 15px 0px #00000033;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  justify-self: center;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 3px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.login {
+  color: #fcfcfc;
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  text-transform: uppercase;
+  margin-top: 50px;
+}
+
+.register {
+  background: #fcfcfc;
+  color: #623f8b;
+}
+
+.login:hover,
+.register:hover {
+  transform: scale(1.1);
+}
+
+.mailSection,
+.passwordSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  margin-block: 15px;
+  border-bottom: 1px solid #ffffff66;
+}
+
+@media screen and (min-width: 768px) {
+  .login,
+  .register {
+    width: 300px;
+  }
+  .form input {
+    width: 350px;
+  }
+}

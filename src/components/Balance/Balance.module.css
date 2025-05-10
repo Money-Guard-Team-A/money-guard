@@ -1,0 +1,33 @@
+.container{
+
+    margin: 28px auto;
+    padding: 0px 56px;
+    background-color: #00000040;
+    padding: 20px;
+    width: 280px;
+    border-radius: 10px;
+  
+}
+
+.title{
+    font-family: poppins;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    color: #ffffff40;
+}
+.content{
+    font-family: poppins;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 100%;
+    color: #fcfcfc;
+    margin-top: 12px;
+
+}
+@media (min-width: 768px) {
+    .container{
+        width: 336px;
+        margin-left: 32px;
+    }
+}
