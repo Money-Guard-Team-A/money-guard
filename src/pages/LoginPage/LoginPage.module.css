@@ -1,0 +1,16 @@
+.loginPage svg {
+  width: 128px;
+  height: 54px;
+  top: 97px;
+  left: 96px;
+  margin-block: 48px;
+}
+
+.loginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}

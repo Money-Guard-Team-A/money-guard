@@ -1,11 +1,13 @@
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
+import Icon from "../../assets/Icons";
+import styles from "./RegistrationPage.module.css";
 
 const RegistrationPage = () => {
   return (
-    <section>
-      <h2>Money Guard</h2>
+    <div className={styles.registrationPage}>
+      <Icon id="#icon-logo-mobile" />
       <RegistrationForm />
-    </section>
+    </div>
   );
 };
 

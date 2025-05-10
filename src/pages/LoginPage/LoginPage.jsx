@@ -1,11 +1,13 @@
 import LoginForm from "../../components/LoginForm/LoginForm";
+import Icon from "../../assets/Icons";
+import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
   return (
-    <section>
-      <h2>Money Guard</h2>
+    <div className={styles.loginPage}>
+      <Icon id="#icon-logo-mobile" />
       <LoginForm />
-    </section>
+    </div>
   );
 };
 

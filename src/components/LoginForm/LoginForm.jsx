@@ -1,9 +1,10 @@
 import { Field, Form, Formik } from "formik";
-import React from "react";
 import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { login } from "../../redux/auth/operations";
 import { useNavigate } from "react-router-dom";
+import styles from "./LoginForm.module.css";
+import Icon from "../../assets/Icons";
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -29,28 +30,43 @@ export default function LoginForm() {
   };
 
   return (
-    <div>
+    <div className={styles.loginForm}>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={loginSubmit}
       >
-        <Form>
-          <Field
-            type="email"
-            name="email"
-            id="email"
-            placeholder="e-mail giriniz"
-          />
-          <Field
-            type="password"
-            name="password"
-            id="password"
-            placeholder="parolayı giriniz"
-          />
-          <button type="submit">Giriş Yap</button>
-          <button type="button" onClick={() => navigate("/register")}>
-            Kayıt Ol
+        <Form className={styles.form}>
+          <div className={styles.mailSection}>
+            <Icon
+              id="#icon-email"
+              className={styles.email}
+              style={{ width: "24px", height: "24px", fill: "#FFFFFF66" }}
+            />
+            <Field type="email" name="email" id="email" placeholder="E-mail" />
+          </div>
+          <div className={styles.passwordSection}>
+            <Icon
+              id="#icon-lock"
+              className={styles.lock}
+              style={{ width: "24px", height: "24px", fill: "#FFFFFF66" }}
+            />
+            <Field
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+          </div>
+          <button className={styles.login} type="submit">
+            LOG IN
+          </button>
+          <button
+            className={styles.register}
+            type="button"
+            onClick={() => navigate("/register")}
+          >
+            REGISTER
           </button>
         </Form>
       </Formik>
