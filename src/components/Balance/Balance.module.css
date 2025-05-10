@@ -25,3 +25,9 @@
     margin-top: 12px;
 
 }
+@media (min-width: 768px) {
+    .container{
+        width: 336px;
+        margin-left: 32px;
+    }
+}
