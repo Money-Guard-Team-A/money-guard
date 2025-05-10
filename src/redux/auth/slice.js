@@ -32,7 +32,8 @@ export const authSlice = createSlice({
 
       .addCase(login.pending, handlePending)
       .addCase(login.fulfilled, (state, action) => {
-        state.user = action.payload.userData;
+        const { username, email } = action.payload.user;
+        state.user = { username, email };
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })

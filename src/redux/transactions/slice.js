@@ -77,7 +77,5 @@ const transactions = createSlice({
   },
 });
 
-
 const transactionsReducer = transactions.reducer;
 export default transactionsReducer;
-
