@@ -69,20 +69,17 @@ export const signout = createAsyncThunk(
   }
 );
 
-export const refresh = createAsyncThunk(
-  "auth/current",
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const token = state.auth.token;
-    if (!token) {
-      return thunkAPI.rejectWithValue("Token bulunamadı!");
-    }
-    setAuthHeader(token);
-    try {
-      const response = await axios.get("/users/current");
-      return response.data;
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err.message);
-    }
+export const refresh = createAsyncThunk("auth/current", async (_, thunkAPI) => {
+  const state = thunkAPI.getState();
+  const token = state.auth.token;
+  if (!token) {
+    return thunkAPI.rejectWithValue("Token bulunamadı!");
   }
-);
+  setAuthHeader(token);
+  try {
+    const response = await axios.get("/users/current");
+    return response.data;
+  } catch (err) {
+    return thunkAPI.rejectWithValue(err.message);
+  }
+});
