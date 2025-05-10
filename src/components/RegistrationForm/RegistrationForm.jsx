@@ -1,9 +1,10 @@
-import React from "react";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { Field, Form, Formik } from "formik";
 import { register } from "../../redux/auth/operations";
 import { useNavigate } from "react-router-dom";
+import styles from "./RegistrationForm.module.css";
+import Icon from "../../assets/Icons";
 
 export default function RegistrationPage() {
   const dispatch = useDispatch();
@@ -31,34 +32,61 @@ export default function RegistrationPage() {
   };
 
   return (
-    <div>
+    <div className={styles.registerForm}>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={registerSubmit}
       >
-        <Form>
-          <Field
-            type="text"
-            id="username"
-            name="username"
-            placeholder="İsim giriniz"
-          />
-          <Field
-            type="email"
-            id="email"
-            name="email"
-            placeholder="e-mail giriniz"
-          />
-          <Field
-            type="password"
-            id="password"
-            name="password"
-            placeholder="parolayı giriniz"
-          />
-          <button type="submit">Kayıt Ol</button>
-          <button type="button" onClick={() => navigate("/login")}>
-            Giriş Yap
+        <Form className={styles.form}>
+          <div className={styles.usernameSection}>
+            <Icon
+              id="#icon-user"
+              className={styles.user}
+              style={{ width: "24px", height: "24px", fill: "#FFFFFF66" }}
+            />
+            <Field
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Name"
+            />
+          </div>
+          <div className={styles.mailSection}>
+            <Icon
+              id="#icon-email"
+              className={styles.email}
+              style={{ width: "24px", height: "24px", fill: "#FFFFFF66" }}
+            />
+            <Field
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-mail"
+            />
+          </div>
+          <div className={styles.passwordSection}>
+            <Icon
+              id="#icon-lock"
+              className={styles.lock}
+              style={{ width: "24px", height: "24px", fill: "#FFFFFF66" }}
+            />
+            <Field
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <button className={styles.register} type="submit">
+            REGISTER
+          </button>
+          <button
+            className={styles.login}
+            type="button"
+            onClick={() => navigate("/login")}
+          >
+            LOG IN
           </button>
         </Form>
       </Formik>
