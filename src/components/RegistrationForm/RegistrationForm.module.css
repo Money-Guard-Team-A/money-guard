@@ -11,6 +11,23 @@
 }
 .form input:focus {
   outline: none;
+  background-color: transparent;
+}
+
+.form input::placeholder {
+  color: #bdbdbd;
+}
+
+.form input:focus::placeholder {
+  color: #bdbdbd;
+  opacity: 0.5;
+}
+
+.form input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  box-shadow: 0 0 0 1000px transparent inset;
+  -webkit-text-fill-color: #bdbdbd;
+  transition: background-color 9999s ease-in-out 0s;
 }
 
 .login,
