@@ -16,7 +16,7 @@
     z-index: 1000;
     transition: transform 0.2s ease;
   }
-  
+ 
   .fab:hover {
     transform: scale(1.1);
   }
@@ -29,7 +29,9 @@
   @media screen and (min-width: 1024px) {
     .container{
       position: absolute;
+      display: flex;
+      align-items: end;
       top: 84px;
-      right: 50px;
-}
+      right: 8px;
   }
+}

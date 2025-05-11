@@ -63,7 +63,8 @@
 @media screen and (min-width: 1024px) {
   .transactionTable {
     margin: 40px auto;
-    width: 715px;
+    max-width: 715px;
+    width: 100%;
     background-color: transparent;
   }
 
