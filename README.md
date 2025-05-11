@@ -6,7 +6,7 @@ Money Guard, kullanıcıların kişisel finanslarını etkili bir şekilde yöne
 
 ## 🔗 Proje Bağlantıları
 
-- **Canlı Uygulama:** [money-guard-five.vercel.app](https://money-guard-five.vercel.app/)
+- **Canlı Uygulama:** [https://zippy-tiramisu-e243f9.netlify.app/](https://zippy-tiramisu-e243f9.netlify.app/)
 - **GitHub Reposu:** [Money Guard – GitHub](https://github.com/Money-Guard-Team-A/money-guard)
 - **Proje Sunumu (Canva):** [Sunumu Görüntüle](https://www.canva.com/design/DAGm2DJ9oc4/L8vQVtPdh6Ve23YdZAy_uQ/view?utm_content=DAGm2DJ9oc4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h647b4e089e#1)
 
@@ -14,16 +14,16 @@ Money Guard, kullanıcıların kişisel finanslarını etkili bir şekilde yöne
 
 ## 👥 Takım
 
-- **Team Lead:** 
-     - Batuhan Gözcü
-- **Scrum Master:** 
-     - Orkun Korçak
+- **Team Lead:**
+  - Batuhan Gözcü
+- **Scrum Master:**
+  - Orkun Korçak
 - **Developers:**
-     - Nilay Türker
-     - Dilara Ekinci
-     - İzzet Furkan Keser
-     - Berk Yağız Karan
-     - Mehmet Menekşe
+  - Nilay Türker
+  - Dilara Ekinci
+  - İzzet Furkan Keser
+  - Berk Yağız Karan
+  - Mehmet Menekşe
 
 ---
 
