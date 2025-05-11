@@ -1,8 +1,22 @@
 body {
-  background: linear-gradient(207.18deg, rgba(52, 31, 160, 0.8) 46.11%, rgba(101, 35, 146, 0.8) 63.65%);
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(
+      207.18deg,
+      rgba(52, 31, 160, 0.8) 46.11%,
+      rgba(101, 35, 146, 0.8) 63.65%
+    ),
+    linear-gradient(
+      219.62deg,
+      rgba(109, 84, 235, 0.6) 28.31%,
+      rgba(101, 35, 146, 0.6) 66.76%
+    );
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+
   font-family: Poppins;
 }
-
 
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
