@@ -11,6 +11,40 @@
     color: #fff;
     font-family: 'Poppins', sans-serif;
 }
+@media (max-width: 768px){
+  .tabContainer { 
+    width: 100%;
+    position: absolute;
+    flex-direction: column;
+    top: 126px;
+    right: 0;
+    max-width: 1333px;
+    height: 907px;
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    align-items: normal !important;
+}
+}
+
+@media (max-width: 1024px){
+  .tabContainer { 
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 1333px;
+    height: 907px;
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+}
+}
 
 .tabContainer > section {
   flex: 1;

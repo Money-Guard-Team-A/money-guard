@@ -4,12 +4,24 @@
   align-items: flex-start;
 }
 
+@media (max-width: 768px){
+  .dashboard{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+  .field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+}
+
 .field {
   display: flex;
   flex-direction: column;
   flex: 1;
-  max-width: 200px;
-  margin-bottom: 30px;
 }
 
 .label {
