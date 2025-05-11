@@ -20,7 +20,7 @@ Money Guard, kullanıcıların kişisel finanslarını etkili bir şekilde yöne
      - Orkun Korçak
 - **Developers:**
      - Nilay Türker
-     - Dilara İnci
+     - Dilara Ekinci
      - İzzet Furkan Keser
      - Berk Yağız Karan
      - Mehmet Menekşe
